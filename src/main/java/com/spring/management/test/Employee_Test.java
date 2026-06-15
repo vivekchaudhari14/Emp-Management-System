@@ -1,5 +1,7 @@
 package com.spring.management.test;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,6 +14,7 @@ public class Employee_Test {
 		EmployeeDao emp = context.getBean("employeeDao",EmployeeDao.class);
 		
 		Employee em = new Employee();
+		
 //		em.setEmp_Id(1);
 //		em.setName("Vivek");
 //		em.setEmp_Dept("Computer Science");
@@ -20,6 +23,21 @@ public class Employee_Test {
 //		int add = emp.insert(em);
 //		System.out.println("Inserted Employee Details" +add);
 		
-		emp.delete(1);
+		//emp.delete(1);
+//		em.setEmp_Id(2); // This Id already In database
+//		em.setName("Vivek");
+//		em.setEmp_Dept("Computer Science");
+//		em.setEmp_Loc("Amalner");
+//
+//		emp.insert(em);
+		
+		//emp.updateEmp(em);
+		
+		/* System.out.println(emp.getSingleEmp(1)); */
+		
+		List<Employee> employee = emp.getAllEmployee();
+		System.out.println(employee);
+		
+		
 	}
 }

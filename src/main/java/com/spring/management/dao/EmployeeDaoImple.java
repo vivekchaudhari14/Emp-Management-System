@@ -1,5 +1,7 @@
 package com.spring.management.dao;
 
+import java.util.List;
+
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +41,30 @@ public class EmployeeDaoImple implements EmployeeDao {
 		Employee employee = this.hibernateTemplate.get(Employee.class, employeeId);
 		this.hibernateTemplate.delete(employee);
 		System.out.println("Employee Deleted"+employeeId);
+	}
+
+
+
+	@Override
+	@Transactional
+	public void updateEmp(Employee employee) {
+			this.hibernateTemplate.update(employee);
+	}
+
+
+
+	@Override
+	public Employee getSingleEmp(int emp_id) {
+		Employee employee = this.hibernateTemplate.get(Employee.class,emp_id);
+		return employee;
+	}
+
+
+
+	@Override
+	public List<Employee> getAllEmployee() {
+		List<Employee> employee = this.hibernateTemplate.loadAll(Employee.class);
+		return employee;
 	}
 	
 }
